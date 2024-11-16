@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+
+.homeContainer{
+    margin-top: 80px;
+    width: 100%;
+    height: 472px;
+    background-color: #e3edf6;
+    display: flex;
+    align-items: center;
+    font-family: "Lora", serif;
+}
+
+.homeInnerCon{
+    width: 95%;
+    margin-inline: auto;
+    display: flex;
+    height: 90%;
+ 
+
+}
+
+
+.heroSec{
+    width: 49%;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    font-family: "Lora", serif;
+    
+
+}
+
+
+.heroContent{
+    font-weight: bold;
+    width: 75%;
+    height: 65%;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.HeroHeading{
+    font-size: 2.9rem;
+  
+}
+.HeroOffer{
+    font-size: 1.5rem;
+}
+.HeroOffer span{
+    color: #dc2626;
+}
+.HeroButton{
+    display: inline-block;
+    width: 125px;
+    height: 48px;
+    font-family: "Lora", serif;
+    font-weight: bold;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.HeroButton:hover{
+    background-color:#3b82f6;
+    color: #fff;
+}
+
+
+.heroSecImg{
+    width: 49%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.heroSecImg img{
+    width: 95%;
+    height: auto;
+}
+
+.infoSection{
+    width: 95%;
+    
+    margin-inline: auto;
+    margin-top: 25px;
+    font-family: "Karla", sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+    gap: 15px;
+}
+
+.infoCard{
+    height: 90px;
+    width: 294px;
+    background-color: #f3f4f6;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.infoCardCon{
+    display: flex;
+    gap: 5px;
+}
+.infoTitle{
+    font-size: 1.3rem;
+}
+
+.infoPara{
+    color: #4b5563;
+}
+
+.secHero{
+    margin-top: 30px;
+    width: 95%;
+    margin-inline: auto;
+    background-color: #e3edf6;
+    display: flex;
+}
+
+.secHeroImg{
+    width: 50%;
+    height: 100%;
+    background-color: #4b5563;
+
+}
+.secHeroImg img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.herosec2Content{
+    font-family: "Lora", serif;
+    width: 50%;
+   
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.herosec2Contentparent{
+    text-align: center;
+    
+}
+
+.trendingCon{
+    width: 95%;
+    margin-inline: auto;
+    margin-top: 30px;
+    
+}
+
+.trendingHeading{
+    font-family: "Lora", serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+
+}
+.trending{
+    width: 100%;
+    display: flex;
+    gap: 23px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+
+@media(min-width:769px){
+    .homeContainer{
+        height: 400px;
+
+    }
+    
+    .HeroHeading{
+        font-size: 2rem;
+      
+    }
+    .HeroOffer{
+        font-size: 1.3rem;
+    }
+    
+    .HeroButton{
+        width: 110px;
+        height: 43px;
+        font-size: 1rem;
+   
+    }
+}
+
+@media (max-width: 768px) {
+    .homeInnerCon {
+        flex-wrap: nowrap;
+    }
+
+    .trendingHeading{
+        font-size: 2rem;
+    }
+
+
+    .homeContainer{
+        height: 360px;
+    }
+    
+    .HeroHeading{
+        font-size: 1.6rem;
+    }
+    .HeroOffer{
+        font-size: 1.3rem;
+    }
+    
+    .HeroButton{
+        width: 100px;
+        height: 40px;
+        font-size: 1rem;
+   
+    }
+
+    .herosec2Contentparent h1{
+           font-size: 1.6rem;
+        
+    }
+
+
+}
+
+
+@media (min-width: 1024px) {
+    .homeContainer{
+        height: 460px;
+    }
+    
+    .heroSec {
+        width: 50%;
+    }
+
+    .HeroHeading {
+        font-size: 2.9rem;
+    }
+
+    .HeroOffer {
+        font-size: 1.5rem;
+    }
+
+
+    .trendingHeading {
+        font-size: 2.5rem;
+    }
+}
+
+@media(max-width:652px){
+    .infoCard{
+        height: 85px;
+        width: 250px;
+        background-color: #f3f4f6;
+        display: flex;
+        padding: 7px;
+        align-items: center;
+    }
+    
+    .infoCardCon{
+        display: flex;
+        gap: 5px;
+    }
+    .infoTitle{
+        font-size: 1.1rem;
+    }
+    
+    .infoPara{
+        color: #4b5563;
+    }
+}
+
+@media(max-width:500px){
+
+    .homeInnerCon {
+        flex-wrap: nowrap;
+    }
+
+    .trendingHeading{
+        font-size: 1.6rem;
+    }
+
+
+    .homeContainer{
+        height: 360px;
+    }
+    
+    .HeroHeading{
+        font-size: .9rem;
+    }
+    .HeroOffer{
+        font-size: .7rem;
+    }
+    
+ 
+
+    .herosec2Contentparent h1{
+           font-size: 1rem;
+        
+    }
+
+    .HeroButton{
+        width: 90px;
+        height: 35px;
+        font-size: .9rem;
+    
+    }
+    .homeInnerCon{
+       height: 290px;
+     
+    
+    }
+    
+
+    
+
+}
+
+
+
+
+
+
+

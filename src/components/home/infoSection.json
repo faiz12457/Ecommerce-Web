@@ -1,0 +1,35 @@
+
+[
+
+    {
+       "title":"Free Delivery",
+       "info":"Order from all items",
+       "icon":"TbTruckDelivery"
+       
+    },
+
+    {
+        "title":"Return & Refund",
+        "info":"Money back guarantee",
+        "icon":"RiRefund2Fill"
+
+
+    },
+
+    {
+        "title":"Member Discount",
+        "info":"On order over $99",
+        "icon":"RiDiscountPercentLine"
+    },
+
+    {
+        "title":"Support 24/7",
+        "info":"Contact us 24 hours a day",
+        "icon":"MdSupportAgent"
+    }
+    
+    
+  
+
+
+]
