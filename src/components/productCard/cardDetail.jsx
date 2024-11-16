@@ -3,8 +3,9 @@ import React,{useContext, useState} from "react";
 import { FaStar } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Shop } from "../../contextpi";
-
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
  export function Card({product}){
    
@@ -12,6 +13,18 @@ import { NavLink } from "react-router-dom";
     const {title,rating ,price,id,thumbnail,category,discountPercentage}=product;
     const name=title.slice(0,15);
     const discountPrice = price - (price * (discountPercentage / 100));
+
+    function cartAdd(){
+      cartId(id);
+      toast.success("item added to cart successfully",{
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        transition: Zoom,
+        
+      });
+      
+    }
 
     return (
 
@@ -49,7 +62,7 @@ import { NavLink } from "react-router-dom";
           </div>
 
 
-          <div className={styles.cartContainer} onClick={()=>cartId(id)}>
+          <div className={styles.cartContainer} onClick={cartAdd}>
           <div className={styles.addCartIcon}>
           <AiOutlineShoppingCart   style={{fill:"white"}}/>
           </div>

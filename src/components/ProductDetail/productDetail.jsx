@@ -12,6 +12,8 @@ import { FaHandHoldingDollar } from "react-icons/fa6";
 import { Loader } from '../loader/loader';
 import { Review } from './review';
 import { Card } from '../productCard/cardDetail';
+import { toast } from "react-toastify";
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 
 
@@ -53,6 +55,18 @@ export function ProductDetail(){
         cartId(product.id);
 
     }
+
+    function cartAdd(){
+        cartId(product.id);
+        toast.success("item added to cart successfully",{
+          position: "bottom-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          transition: Zoom,
+          
+        });
+        
+      }
 
 
 
@@ -96,7 +110,7 @@ export function ProductDetail(){
                 <p style={{color:mode?"#fff":"black"}}>{description}</p>
 
                 <div className={styles.buttonCon}>
-                    <button className={styles.cartButton} onClick={()=>cartId(product.id)}><AiOutlineShoppingCart style={{fill:"white" ,marginRight:"4px"}} size={17} />ADD TO CART</button>
+                    <button className={styles.cartButton} onClick={cartAdd}><AiOutlineShoppingCart style={{fill:"white" ,marginRight:"4px"}} size={17} />ADD TO CART</button>
                     <button className={styles.buyNowButton} onClick={buyNow}><FaHandHoldingDollar style={{fill:"white",marginRight:"4px"}} size={17}/>BUY NOW</button>
                     <button className={styles.wishListButton}><CiHeart style={{fill:"white",marginRight:"2px"}} size={19} />ADD TO WISHLIST</button>
                 </div>
