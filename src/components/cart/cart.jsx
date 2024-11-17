@@ -22,9 +22,9 @@ import { RiDeleteBin6Line } from "react-icons/ri";
           <span className={style.cartInfoDisc}  style={{color:mode?"#fff":"black"}}>-{cart.discountPercentage}%</span>
         </div>
         <div className={style.cartAdd}>
-          <FiMinusCircle onClick={()=>sub(cart.id)} />
+          <FiMinusCircle onClick={()=>sub(cart.id)} style={{cursor:"pointer"}} />
           <span className={style.cartVal}>{cart.quantity||1}</span> 
-          <FiPlusCircle onClick={()=>add(cart.id)} />
+          <FiPlusCircle onClick={()=>add(cart.id)} style={{cursor:"pointer"}} />
         </div> 
       </div>
       <div className={style.cartDeleteSecCon}>

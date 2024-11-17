@@ -13,6 +13,7 @@ export function  Getter({children}){
     const [mode,setMode]=useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [totals, setTotals] = useState({ subTotal: 0, tax: 0, shipping: 15, grandTotal: 0});
+    const [checkOut,setCheckOut]=useState(true);
     
 
 
@@ -124,7 +125,10 @@ else{
     }, [cart]);
 
   
-    return <Shop.Provider value={{cartId,cart,removeItem,count,totalPriceQuantity,add,sub,filterProducts,totals,PriceFilter,search,setSearch,mode,setMode,isCartOpen, setIsCartOpen,}}>{children}</Shop.Provider>
+    return <Shop.Provider value={{cartId,cart,removeItem,count,totalPriceQuantity,add,sub,
+    filterProducts,totals,PriceFilter,search,setSearch,mode,setMode,isCartOpen, setIsCartOpen,
+    checkOut,setCheckOut,setCart,
+    }}>{children}</Shop.Provider>
 }
 
 

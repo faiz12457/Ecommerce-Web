@@ -1,5 +1,5 @@
 import style from "./nav.module.css";
-import { useContext} from "react";
+import { useContext, useState} from "react";
 import { Shop } from "../../contextpi";
 import { NavLink } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
@@ -9,13 +9,30 @@ import { FiMoon } from "react-icons/fi";
 import { RiCloseLine } from "react-icons/ri";
 import cartImg from "./emptyCart.jpg";
 import { MdOutlineLightMode } from "react-icons/md";
-
+import { toast } from "react-toastify";
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import Cart from "../cart/cart";
 
 export function NavBar() {
     
-    const {  search, setSearch, count, cart,totals,mode,setMode,isCartOpen,setIsCartOpen } = useContext(Shop);
+    const {  search, setSearch, count, cart,totals,mode,setCart,setMode,isCartOpen,setIsCartOpen,checkOut,setCheckOut } = useContext(Shop);
     const { subTotal, tax, shipping, grandTotal } = totals;
+    
+    function notify(){
+        toast.success("your order has been confirm",{
+            position: "bottom-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            transition: Zoom,
+            closeButton: false,
+              bodyClassName: "custom-toast-body",
+             className: "custom-toast",
+          });
+          setCart([]);
+          setCheckOut(true);
+          setIsCartOpen(false);
+          
+    }
 
     return (
         <>
@@ -59,14 +76,16 @@ export function NavBar() {
             <div className={`${style.cartSlider} ${isCartOpen ? style.open : ""}`} style={{backgroundColor:mode?"#475569":"#fff"}}>
                 <div className={style.cartCon}>
                     <div className={style.cartHeading}>
-                        <p className={style.cartSliderTitle} style={{color:mode?"#fff":"black"}}>Your Cart</p>
+                        <p className={style.cartSliderTitle} style={{color:mode?"#fff":"black"}}>{checkOut?"Your Cart":"CheckOut"}</p>
       
-                            <RiCloseLine onClick={() => setIsCartOpen(!isCartOpen)} size={28} style={{ fill:mode?"#fff":"black",cursor: "pointer" }} />
+                           { checkOut&&<RiCloseLine   onClick={() => setIsCartOpen(!isCartOpen)} size={28} style={{ fill:mode?"#fff":"black",cursor: "pointer" }} />}
                         
                     </div>
 
                     {cart.length > 0 ? (
                         <>
+                        { checkOut?(
+                            <>
                             <div className={style.cartInfoCon}>
                                 {cart.map((item) => <Cart key={item.id} cart={item} />)}
                             </div>
@@ -78,7 +97,24 @@ export function NavBar() {
                                 <div className={style.Total}><p style={{color:mode?"#fff":"black"}}>Grand Total :</p><p style={{color:mode?"#fff":"black"}}>${grandTotal.toFixed(2)}</p></div>
                             </div>
 
-                            <button className={style.checkOut}>CHECKOUT</button>
+                            <button className={style.checkOut} onClick={()=>setCheckOut(!checkOut)}>CHECKOUT</button>
+                            </>)
+
+                            :<div>
+                            <p>Welcome to the checkout section. This is being a development project, 
+                            I haven't implemented any payment related task. If you click the cancel button
+                             you'll go back to the cart segment. Clicking confirm button will consider your
+                              order confirmed, payment done & also order delivered successfully. Another 
+                              thing to mention, order history hasn't been developed due to not having a 
+                              proper backend api.</p>
+                              <div style={{width:"100%",display:"flex",justifyContent:"space-between",marginTop:"10px"} }>
+                                <button onClick={()=>setCheckOut(!checkOut)} className={style.CheckOutButton}>Cancel</button>
+                                <button onClick={notify}  className={style.CheckOutButton}>Confirm</button>
+                              </div>
+                            </div>
+                          
+
+                        }
                         </>
                     ) : (
                         <div className={style.emptycartCon}>

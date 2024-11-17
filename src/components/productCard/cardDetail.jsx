@@ -21,6 +21,10 @@ import { toast } from "react-toastify";
         autoClose: 2000,
         hideProgressBar: true,
         transition: Zoom,
+        closeButton: false,
+          bodyClassName: "custom-toast-body",
+         className: "custom-toast",
+          
         
       });
       

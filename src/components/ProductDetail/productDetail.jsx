@@ -14,6 +14,7 @@ import { Review } from './review';
 import { Card } from '../productCard/cardDetail';
 import { toast } from "react-toastify";
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+import "./toast.css";
 
 
 
@@ -63,9 +64,26 @@ export function ProductDetail(){
           autoClose: 2000,
           hideProgressBar: true,
           transition: Zoom,
+          closeButton: false,
+          bodyClassName: "custom-toast-body",
+         className: "custom-toast",
           
         });
         
+      }
+
+      function wishListAdd(){
+        toast.success("item added to your wishlist",{
+            position: "bottom-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            transition: Zoom,
+            closeButton: false,
+          bodyClassName: "custom-toast-body",
+         className: "custom-toast",
+            
+            
+          })
       }
 
 
@@ -112,7 +130,7 @@ export function ProductDetail(){
                 <div className={styles.buttonCon}>
                     <button className={styles.cartButton} onClick={cartAdd}><AiOutlineShoppingCart style={{fill:"white" ,marginRight:"4px"}} size={17} />ADD TO CART</button>
                     <button className={styles.buyNowButton} onClick={buyNow}><FaHandHoldingDollar style={{fill:"white",marginRight:"4px"}} size={17}/>BUY NOW</button>
-                    <button className={styles.wishListButton}><CiHeart style={{fill:"white",marginRight:"2px"}} size={19} />ADD TO WISHLIST</button>
+                    <button className={styles.wishListButton} onClick={wishListAdd}><CiHeart style={{fill:"white",marginRight:"2px"}} size={19} />ADD TO WISHLIST</button>
                 </div>
           
             </div>
@@ -134,8 +152,8 @@ export function ProductDetail(){
         <div className={styles.similarProduct}>
         <p className={styles.similarTitle}  style={{color:mode?"#fff":"black"}}>Similar Products</p>
         <div className={styles.similarCardCon}>
-        {categoryData&&categoryData.map((product)=>{
-            return <Card product={product} />
+        {categoryData&&categoryData.map((product,index)=>{
+            return <Card product={product} key={index} />
         })}
             
         </div>
