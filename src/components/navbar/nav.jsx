@@ -15,8 +15,8 @@ import Cart from "../cart/cart";
 
 export function NavBar() {
     
-    const {  search, setSearch, count, cart,totals,mode,setCart,setMode,isCartOpen,setIsCartOpen,checkOut,setCheckOut } = useContext(Shop);
-    const { subTotal, tax, shipping, grandTotal } = totals;
+    const {search, setSearch, count, cart,totals,mode,setCart,setMode,isCartOpen,setIsCartOpen,checkOut,setCheckOut } = useContext(Shop);
+    const {subTotal, tax, shipping, grandTotal } = totals;
     
 
     
@@ -31,14 +31,9 @@ export function NavBar() {
             className: "custom-toast",
           });
           
-          
           setIsCartOpen(false);
           setCart([]);
           setCheckOut(true);
-         
-          
-         
-          
     }
 
     return (

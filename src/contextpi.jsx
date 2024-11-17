@@ -55,7 +55,7 @@ export function  Getter({children}){
       
     }
 
-else{
+     else{
       setCart((prevCart)=>[...prevCart,{...SingleCart,quantity:1}])
 }
     

@@ -14,8 +14,7 @@ root.render(
   <Getter>
     <App  />
     </Getter>
-    <ToastContainer position='fixed'
- />
+    <ToastContainer position='fixed'/>
 
   </React.StrictMode>
 );
