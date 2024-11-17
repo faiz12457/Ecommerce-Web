@@ -5,6 +5,7 @@ import App from './App';
 import { Getter } from './contextpi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from './components/scroll/scroll';
 
 
 
@@ -14,6 +15,7 @@ root.render(
   <Getter>
     <App  />
     </Getter>
+    <ScrollToTop />
     <ToastContainer position='fixed'/>
 
   </React.StrictMode>
