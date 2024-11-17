@@ -18,6 +18,8 @@ export function NavBar() {
     const {  search, setSearch, count, cart,totals,mode,setCart,setMode,isCartOpen,setIsCartOpen,checkOut,setCheckOut } = useContext(Shop);
     const { subTotal, tax, shipping, grandTotal } = totals;
     
+
+    
     function notify(){
         toast.success("your order has been confirm",{
             position: "bottom-center",
@@ -25,12 +27,17 @@ export function NavBar() {
             hideProgressBar: true,
             transition: Zoom,
             closeButton: false,
-              bodyClassName: "custom-toast-body",
-             className: "custom-toast",
+            bodyClassName: "custom-toast-body",
+            className: "custom-toast",
           });
+          
+          
+          setIsCartOpen(false);
           setCart([]);
           setCheckOut(true);
-          setIsCartOpen(false);
+         
+          
+         
           
     }
 
@@ -82,7 +89,7 @@ export function NavBar() {
                         
                     </div>
 
-                    {cart.length > 0 ? (
+                    {cart.length > 0  ? (
                         <>
                         { checkOut?(
                             <>
@@ -100,16 +107,16 @@ export function NavBar() {
                             <button className={style.checkOut} onClick={()=>setCheckOut(!checkOut)}>CHECKOUT</button>
                             </>)
 
-                            :<div>
-                            <p>Welcome to the checkout section. This is being a development project, 
+                            :<div style={{marginTop:"5px"}}>
+                            <p style={{color:mode?"#fff":"black"}}>Welcome to the checkout section. This is being a development project, 
                             I haven't implemented any payment related task. If you click the cancel button
                              you'll go back to the cart segment. Clicking confirm button will consider your
                               order confirmed, payment done & also order delivered successfully. Another 
                               thing to mention, order history hasn't been developed due to not having a 
                               proper backend api.</p>
                               <div style={{width:"100%",display:"flex",justifyContent:"space-between",marginTop:"10px"} }>
-                                <button onClick={()=>setCheckOut(!checkOut)} className={style.CheckOutButton}>Cancel</button>
-                                <button onClick={notify}  className={style.CheckOutButton}>Confirm</button>
+                                <button onClick={()=>setCheckOut(!checkOut)} className={style.CheckOutButton} style={{backgroundColor:mode?"#475569":"#fff",color:mode?"#fff":"black",border: mode?".5px solid grey":".5px solid black"}}>Cancel</button>
+                                <button onClick={notify}  className={style.CheckOutButton} style={{backgroundColor:mode?"#475569":"#fff",color:mode?"#fff":"black",border: mode?".5px solid grey":".5px solid black"}}>Confirm</button>
                               </div>
                             </div>
                           
