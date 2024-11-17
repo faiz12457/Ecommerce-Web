@@ -21,7 +21,7 @@ export function NavBar() {
 
     
     function notify(){
-        toast.success("your order has been confirm",{
+        toast.success("your order has been confirmed",{
             position: "bottom-center",
             autoClose: 2000,
             hideProgressBar: true,
