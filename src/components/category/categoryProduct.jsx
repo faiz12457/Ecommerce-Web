@@ -40,7 +40,7 @@ export function CategoryProduct(){
     }
 
 
- console.log(product);
+
 
   if(loading) return   <Loader /> 
    return ( 

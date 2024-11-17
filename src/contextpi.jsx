@@ -47,7 +47,6 @@ export function  Getter({children}){
     function cartId(id){
 
       const SingleCart = apidata.find((product)=> product.id===id);
-      console.log(SingleCart);
       const itemExist = cart.some((item)=>item.id===id);
       if(itemExist){
   
