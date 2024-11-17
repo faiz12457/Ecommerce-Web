@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './ScrollToTop.module.css'; 
 import { IoIosArrowUp } from "react-icons/io";
+import { Shop } from '../../contextpi';
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const {mode}=useContext(Shop);
 
   const handleScroll = () => {
     if (window.scrollY > 300) {
@@ -27,8 +29,8 @@ export const ScrollToTop = () => {
   return (
     <>
       {isVisible && (
-        <div className={styles.scrollToTop} onClick={scrollToTop}>
-        <IoIosArrowUp size={35} />
+        <div className={styles.scrollToTop} onClick={scrollToTop} style={{backgroundColor:mode?"#fff":"#374151"}}>
+        <IoIosArrowUp size={35}  style={{fill:mode?"black":"white"}}/>
 
         </div>
       )}

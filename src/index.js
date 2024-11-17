@@ -14,10 +14,10 @@ root.render(
   <React.StrictMode>
   <Getter>
     <App  />
-    </Getter>
     <ScrollToTop />
+    </Getter>
+    
     <ToastContainer position='fixed'/>
-
   </React.StrictMode>
 );
 
