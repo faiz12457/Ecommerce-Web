@@ -1,14 +1,16 @@
-import React from "react";
+import React, { lazy } from "react";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import { Applayout } from "./ui/layout";
 import { ProductDetail } from "./components/ProductDetail/productDetail";
 import { Home } from "./components/home/home";
-import { Product } from "./components/productCard/Product";
-import { getData } from "./api";
+//import Product  from "./components/productCard/Product";
+//import { getData } from "./api";
 import { ErrorPage } from "./components/errorPage/errorPage";
 import { Category } from "./components/category/category";
 import { CategoryProduct } from "./components/category/categoryProduct";
 
+
+const Products =lazy(()=>import("./components/productCard/Product"));
 
 
 function App() {
@@ -28,8 +30,8 @@ function App() {
         },
         {
           path:"/products",
-          element:<Product />,
-          loader:getData,
+          element:<Products />,
+          
         },
         
         {

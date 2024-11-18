@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import { Getter } from './contextpi';
@@ -11,13 +11,14 @@ import ScrollToTop from './components/scroll/scroll';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  //<React.StrictMode>
   <Getter>
     <App  />
     <ScrollToTop />
+    <ToastContainer position='fixed'/>
     </Getter>
     
-    <ToastContainer position='fixed'/>
-  </React.StrictMode>
+   
+//  </React.StrictMode>
 );
 

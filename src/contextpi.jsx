@@ -1,5 +1,5 @@
 import React,{createContext, useEffect,useMemo,useState} from "react";
-import { getShopData } from "./axois/api_axios";
+import { getShopData, matchingData } from "./axois/api_axios";
 
 export const Shop=createContext();
 
@@ -14,21 +14,67 @@ export function  Getter({children}){
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [totals, setTotals] = useState({ subTotal: 0, tax: 0, shipping: 15, grandTotal: 0});
     const [checkOut,setCheckOut]=useState(true);
+    const [page,setPage]=useState(0);
+    const [limit,setLimit]=useState(8);
+    const [loading,setLoading]=useState(true);
+    const [dataMatch,setDataMatch]=useState([]);
     
 
-
     useEffect(()=>{
-     data();
-  
+     cartMatchData();
    
     },[])
 
+
+
+   async function cartMatchData(){
+      const res= await matchingData();
+      setDataMatch(res.data.products);
+    }
+
+    
+ ///  infinite scrolling and optimizing 
+    const handleScroll=()=>{
+      const scrollHeight=document.documentElement.scrollHeight;
+      const innerHeight=window.innerHeight;
+      const scrollTop=document.documentElement.scrollTop;
+
+      if(innerHeight+scrollTop+20>=scrollHeight){
+        console.log("loading new data");
+        setPage((prev)=> prev+1);
+      }
+
+    }
+
+    useEffect(()=>{
+      data();
+      window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+    
+    },[page])
+
+
+
         
    async function data(){
-           const res=await getShopData();
-          setApiData(res.data.products);   
-          setDefault(res.data.products);
+    setLoading(true);
+    try{
+      const res=await getShopData(limit,limit*page);
+      setApiData((prev)=>[...prev,...res.data.products]);   
+      setDefault((prev)=>[...prev,...res.data.products]);
+    
     }
+    catch(error){
+      console.log(error.message);
+
+    }
+    finally{
+      setLoading(false);
+
+    }
+    }
+
+    // end here
    
 
     function add(id){
@@ -46,7 +92,7 @@ export function  Getter({children}){
 
     function cartId(id){
 
-      const SingleCart = apidata.find((product)=> product.id===id);
+      const SingleCart = dataMatch.find((product)=> product.id===id);
       const itemExist = cart.some((item)=>item.id===id);
       if(itemExist){
   
@@ -126,7 +172,7 @@ export function  Getter({children}){
   
     return <Shop.Provider value={{cartId,cart,removeItem,count,totalPriceQuantity,add,sub,
     filterProducts,totals,PriceFilter,search,setSearch,mode,setMode,isCartOpen, setIsCartOpen,
-    checkOut,setCheckOut,setCart,
+    checkOut,setCheckOut,setCart,loading,
     }}>{children}</Shop.Provider>
 }
 

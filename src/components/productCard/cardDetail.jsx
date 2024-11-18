@@ -35,7 +35,7 @@ import { toast } from "react-toastify";
       <>
       <div className={styles.cardContainer}  style={{backgroundColor:mode?"#1e293b":"#fff",borderColor:mode?"#fff":"#D7D5D1"}}>
         <div className={styles.CardImgCon}>
-        <img src={thumbnail}></img>
+        <img src={thumbnail} loading="lazy" />
         </div>
         <div className={styles.CardInfoCon}>
         <div style={{width:"240px",marginInline:"auto"}}>

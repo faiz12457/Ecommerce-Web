@@ -3,6 +3,8 @@ import styles from "./card.module.css";
 import { useContext} from "react";
 import { Shop } from "../../contextpi";
 import { Card } from "./cardDetail";
+import ProductLoader from "../productLoader/productLoader";
+
 
 
 const style={
@@ -14,14 +16,14 @@ const style={
   justifyContent:"center",
 }
 
-export  function Product(){
-  const {filterProducts,PriceFilter,mode} =useContext(Shop); 
+ function Product(){
+  const {filterProducts,PriceFilter,mode,loading} =useContext(Shop); 
   
  
     
     return (
         <>
-        <div style={{width:"95%",marginInline:"auto",marginTop:"95px"}}>
+        <div style={{width:"95%",marginInline:"auto",marginTop:"95px",display:"flex", justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
         <div className={styles.productTitle}>
         <p style={{color:mode?"#fff":"black"}}>Products</p>
 
@@ -36,11 +38,13 @@ export  function Product(){
         
         <div style={style}>
         {filterProducts && filterProducts.map((products)=><Card product={products} key={products.id} />) }
-       
         </div>
+        {loading&& <div style={{marginTop:"10px"}}><ProductLoader /></div> }
         </div>
         </> 
     )
 }
+
+export default Product;
 
 

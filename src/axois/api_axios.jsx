@@ -8,12 +8,17 @@ const api=axios.create({
 
 
 
-export const getShopData=()=>{
+export const getShopData=(limit,skip)=>{
 
-   return  api.get("products?limit=0");
+   return  api.get(`products?limit=${limit}&skip=${skip}`);
 
 }
 
+
+export function matchingData(){
+    return api.get("products?limit=0");
+
+}
 export const singleCategory=({params})=>{
     const {category}=params;
     return api.get(`/${category}`);

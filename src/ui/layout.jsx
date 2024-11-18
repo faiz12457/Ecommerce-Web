@@ -1,4 +1,4 @@
-import React,{useContext, useEffect} from "react";
+import React,{Suspense, useContext, useEffect} from "react";
 import { NavBar } from "../components/navbar/nav";
 import { Outlet, useNavigation } from "react-router-dom";
 import { Footer } from "../components/footer/footer";
@@ -25,7 +25,10 @@ import { Shop } from "../contextpi";
         
         <>
            <NavBar />
+           <Suspense fallback={<Loader />}>
            <Outlet/>
+           </Suspense>
+        
            <Footer />
            </>
       
