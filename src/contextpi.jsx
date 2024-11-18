@@ -39,7 +39,7 @@ export function  Getter({children}){
       const innerHeight=window.innerHeight;
       const scrollTop=document.documentElement.scrollTop;
 
-      if(innerHeight+scrollTop+20>=scrollHeight){
+      if(innerHeight+scrollTop+1>=scrollHeight){
         
         setPage((prev)=> prev+1);
       }
