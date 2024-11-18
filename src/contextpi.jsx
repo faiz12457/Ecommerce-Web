@@ -40,7 +40,7 @@ export function  Getter({children}){
       const scrollTop=document.documentElement.scrollTop;
 
       if(innerHeight+scrollTop+20>=scrollHeight){
-        console.log("loading new data");
+        
         setPage((prev)=> prev+1);
       }
 
